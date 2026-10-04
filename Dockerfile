@@ -5,4 +5,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 ENV PORT=8765
 EXPOSE 8765
-CMD ["python", "run.py"]
+CMD ["python", "webserver.py"]

@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: you-probably-shouldnt-know-this
+    runtime: docker
+    plan: free
+    healthCheckPath: /health

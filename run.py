@@ -16,6 +16,8 @@ async def process_request(path, request_headers):
     return None
 
 async def main():
+    # One listener handles BOTH ordinary browser HTTP requests and WebSocket upgrades.
+    # Do not start server.http_server separately: it would compete for the same port.
     async with serve(
         server.handler,
         "0.0.0.0",

@@ -1,0 +1,10 @@
+# V2 game data placeholder
+TRIVIA=[]
+DIRTY_TRIVIA=[]
+WHO=[]
+FUNNY=[]
+SABOTAGE=[]
+CHAOS=[]
+FINAL=[]
+TRANSITIONS={}
+OUTCOMES=[]

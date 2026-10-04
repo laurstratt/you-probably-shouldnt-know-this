@@ -10,8 +10,12 @@ PUBLIC = Path(__file__).parent / "public"
 
 
 def process_request(path, request_headers):
-    # Normal browser requests are served by the same port as WebSockets.
-    # WebSocket upgrade requests continue through to `handler`.
+    # IMPORTANT: let WebSocket upgrade requests continue to the WebSocket
+    # handshake. Only ordinary browser HTTP requests should be handled here.
+    upgrade = request_headers.get("Upgrade", "").lower()
+    if upgrade == "websocket":
+        return None
+
     if path == "/health":
         return HTTPStatus.OK, [("Content-Type", "text/plain; charset=utf-8")], b"ok"
     if path == "/":
